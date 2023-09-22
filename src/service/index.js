@@ -11,4 +11,9 @@ export const recommondList = () => http.get('/homepage/block/page')
 //新歌排行榜
 export const playsong = () => http.get("/homepage/block/page");
 //音乐日历
-export const Musiccalendar = () => http.get("/calendar?startTime=1606752000000&endTime=1609430399999")
+export const Musiccalendar = (startTime, endTime) => http.get('/calendar', {
+  params: {
+    startTime,
+    endTime,
+  },
+});

@@ -6,20 +6,21 @@ export default function Song() {
   useEffect(() => {
     playsong()
       .then((res) => {
-        console.log(res);
         setlist(res.data.data.blocks[5].creatives);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-  console.log("新歌", lists);
   return (
     <div className="w-[100%] overflow-auto flex items-center lunbo">
       {lists.map((item) => (
-        <div>
+        <div key={item.id}>
           {item.resources.map((item) => (
-            <div className="w-[87.64vw]  mt-[2.36vw] h-[14vw] flex">
+            <div
+              className="w-[87.64vw]  mt-[2.36vw] h-[14vw] flex"
+              key={item.index}
+            >
               <img
                 src={item.uiElement.image.imageUrl}
                 className="rounded-lg"
