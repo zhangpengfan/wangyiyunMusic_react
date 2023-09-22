@@ -6,11 +6,9 @@ export default function List() {
   let [list, setlist] = useState([]);
   useEffect(() => {
     playsong().then((res) => {
-      console.log(res);
       setlist(res.data.data.blocks[3].creatives);
     });
   }, []);
-  console.log("11", list);
   return (
     <div className="w-[100%] overflow-auto mt-[2vw] lunbo">
       <div className="flex  flex-row">
@@ -40,10 +38,14 @@ export default function List() {
                       className="h-[10.63vw] w-[10.69vw] rounded-lg"
                     />
                   </div>
-                  <div>
+                  <div className=" font-bold">
                     <span
                       className={
-                        index === 1 ? "text-[#818AAC]" : "text-[#bd9642]"
+                        index === 1
+                          ? "text-[#818AAC]"
+                          : index === 2
+                          ? "text-[#bd9642]"
+                          : "text-[#CD8354]"
                       }
                     >
                       {index + 1}
@@ -58,7 +60,14 @@ export default function List() {
                     </p>
                   </div>
                   <div>
-                    <span className="mt-[1vw] text-[red]">
+                    <span
+                      className={
+                        item.resources[index]?.uiElement.labelText.text ===
+                        "新晋"
+                          ? "text-[#39B184] mt-[1vw]"
+                          : "text-[red] mt-[1vw]"
+                      }
+                    >
                       {item.resources[index]?.uiElement.labelText.text}
                     </span>
                   </div>

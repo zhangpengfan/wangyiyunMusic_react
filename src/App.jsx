@@ -5,6 +5,7 @@ import Buttons from "./view/button/button";
 import No from "./view/404/Nofont.jsx";
 import Nav from "./component/Nav";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 export default function App() {
   return (
     <BrowserRouter>

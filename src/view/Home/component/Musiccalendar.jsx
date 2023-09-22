@@ -3,8 +3,28 @@ import { useEffect, useState } from "react";
 import { Musiccalendar } from "../../../service/index";
 export default function MusicCalendar() {
   let [music, setmusic] = useState([]);
+  const currentDate = new Date();
+  const startTimestamp = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    currentDate.getDate(),
+    0,
+    0,
+    0,
+    0
+  ).getTime();
+  const endTimestamp = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    currentDate.getDate() + 1,
+    23,
+    59,
+    59,
+    999
+  ).getTime();
+
   useEffect(() => {
-    Musiccalendar()
+    Musiccalendar(startTimestamp, endTimestamp)
       .then((res) => {
         console.log(res);
         setmusic(res.data.data.calendarEvents.slice(0, 2));
@@ -12,7 +32,7 @@ export default function MusicCalendar() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [startTimestamp, endTimestamp]);
   return (
     <div className="px-[4vw] py-[4vw] shadow-xl bg-[#25272e] mt-2 rounded-xl">
       {music.map((item) => (
@@ -21,7 +41,7 @@ export default function MusicCalendar() {
             <p className="text-[2.72vw] text-[white]">{`${
               new Date().getMonth() + 1
             }/${new Date().getDate()}`}</p>
-            <p className="text-[#3E4558] text-[2.72vw]">{item.title}</p>
+            <p className="text-[white] text-[2.72vw] mt-1">{item.title}</p>
           </div>
           <div className="pb-[5px]">
             <img
