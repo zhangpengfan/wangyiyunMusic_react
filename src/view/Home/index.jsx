@@ -18,21 +18,22 @@ export default function Index() {
         <div className="mt-[2vw]">
           <Icon icon="ri:menu-fill" color="#78758b" width="30" />
         </div>
-        <NavLink to={"/Search"}>
-          <div className="relative mt-[2vw]">
+        <div className="relative mt-[2vw]">
+          <NavLink to={"/Search"}>
             <input
               type="text"
               className="rounded-3xl w-[76.39vw] pl-[8vw] bg-[#ebdbfa]"
               placeholder="明天你好 -牛奶咖啡"
             />
-            <span className="absolute top-1 left-1">
-              <Icon icon="circum:search" color="#78758b" />
-            </span>
-            <span className="absolute top-1 left-[16.25rem]">
-              <Icon icon="ph:scan-duotone" color="#78758b" />
-            </span>
-          </div>
-        </NavLink>
+          </NavLink>
+          <span className="absolute top-1 left-1">
+            <Icon icon="circum:search" color="#78758b" />
+          </span>
+          <span className="absolute top-1 left-[16.25rem]">
+            <Icon icon="ph:scan-duotone" color="#78758b" />
+          </span>
+        </div>
+
         <div className="mt-[2vw]">
           <Icon icon="ph:microphone-fill" color="#78758b" width="30" />
         </div>
