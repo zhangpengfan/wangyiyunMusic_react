@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { NavLink } from "react-router-dom";
-import { fetchToplistDetail } from "../../service/index";
+import { fetchToplistDetail, SearchBox } from "../../service/index";
 export default function Search() {
   let [list, setList] = useState([]);
+  let [serach, setsearch] = useState([]);
+  let [content, setcontent] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchToplistDetail();
@@ -13,7 +15,18 @@ export default function Search() {
       console.log(err);
     });
   }, []);
-  console.log(list);
+  //搜索框内容
+  useEffect(() => {
+    SearchBox(content)
+      .then((res) => {
+        setsearch(res.data.result.songs);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [content]);
+  // console.log("当前content内容", content);
+  // console.log("当前serach状态", serach);
   const MenuData = [
     {
       icon: "ph:user-fill",
@@ -34,7 +47,7 @@ export default function Search() {
   ];
   const LikeData = ["方大同", "周杰伦", "陪你度过漫长岁月", "张杰"];
   return (
-    <div className="bg-[#1a1c23] pb-[45px]">
+    <div className="bg-[#1a1c23] pb-[45px] relative">
       {/* 头部 */}
       <div className="h-[16.49vw] w-[100%] flex justify-around items-center fixed top-[0] z-50 bg-[#1a1c23] dark:bg-[#f1f3fb]">
         <NavLink to={-1}>
@@ -47,6 +60,10 @@ export default function Search() {
             type="text"
             className="rounded-3xl w-[76.39vw] pl-[8vw] bg-[#ebdbfa]"
             placeholder="明天你好 -牛奶咖啡"
+            onChange={(event) => {
+              const value = event.target.value;
+              setcontent(value);
+            }}
           />
           <span className="absolute top-1 left-1">
             <Icon icon="circum:search" color="#78758b" />
@@ -61,7 +78,7 @@ export default function Search() {
       <div className="w-[100%] mt-[16.29vw] pl-[10px] pr-[10px] bg-[#1a1c23] dark:bg-[#f1f3fb]">
         <ul className="flex-row ml-[11.1vw] justify-between flex mr-[10.48vw]">
           {MenuData.map((item) => (
-            <li>
+            <li key={item.id}>
               <Icon icon={item.icon} color="#fb3c4b" width="30" height="30" />
               <p className="text-[white] text-[2.84vw] dark:text-[black] mt-[1.87vw]">
                 {item.title}
@@ -100,7 +117,7 @@ export default function Search() {
         <div className="flex mt-7 px-[10px] w-[1000%]">
           {list.map((item, index) => (
             <div
-              key={index}
+              key={item.id}
               className="w-[61vw] bg-[#31333a] rounded-[2vw] ml-[2.344vw]"
             >
               <div className="border-b-[#43454c] ml-[2vw] w-[54vw] h-[12.422vw] flex items-center border-b-[1px]">
@@ -116,7 +133,7 @@ export default function Search() {
                 {item.tracks.slice(0, 20).map((item, index) => (
                   <div
                     className="my-[2.7vw] flex items-center h-[8vw]"
-                    key={index}
+                    key={item.id}
                   >
                     <span
                       className={`text-[3.2vw] w-[8.83vw] text-center font-[400] ${
@@ -135,7 +152,20 @@ export default function Search() {
           ))}
         </div>
       </div>
-      red
+      {/* 搜索内容 */}
+      {content ? (
+        <div className="absolute top-0 left-0 w-[100%] bg-[#1a1c23] z-[999] px-[10px]">
+          {serach.map((item, index) => (
+            <div
+              className="flex items-center py-[10px] px-[10px] border-b border-[#282a31]"
+              key={index}
+            >
+              <Icon icon="basil:search-outline" color="white" />
+              <p className="ml-2 text-[white] over">{item.name}</p>
+            </div>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }

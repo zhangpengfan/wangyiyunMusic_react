@@ -13,3 +13,15 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.adm-tabs-tab-line {
+  background-color: red;
+}
+.active-line-color{
+  color: red;
+}
+.adm-tab-bar-item-active {
+ color: red !important;
+}
+.adm-tabs-tab {
+  color: cadetblue !important;
+}
