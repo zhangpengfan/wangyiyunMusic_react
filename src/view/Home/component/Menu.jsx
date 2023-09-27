@@ -9,7 +9,7 @@ export default function Menu() {
     });
   }, []);
   return (
-    <div className="flex overflow-auto w-[100%] lunbo relative z-[999]">
+    <div className="flex overflow-auto w-[100%] lunbo relative">
       {mun.map((item) => (
         <div className="text-[white] w-[12vw] ml-[7vw]">
           <img

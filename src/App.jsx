@@ -11,10 +11,7 @@ export default function App() {
           path="/Search"
           element={<Laycoponent path="Search/Search.jsx" />}
         />
-        <Route
-          path="/Buttons"
-          element={<Laycoponent path="button/button.jsx" />}
-        />
+        <Route path="/Mv" element={<Laycoponent path="Mv/Mv.jsx" />} />
         <Route path="*" element={<Laycoponent path="404/Nofont.jsx" />} />
       </Routes>
       <Nav />

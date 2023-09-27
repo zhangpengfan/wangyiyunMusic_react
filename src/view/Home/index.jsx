@@ -52,7 +52,7 @@ export default function Index() {
         <Recommendedplaylists />
       </div>
       {/* 新歌 */}
-      <div class="w-screen mt-[6vw] pb-[4vw] border-b-[1px] border-[#2d2f36] px-[10px]">
+      <div className="w-screen mt-[6vw] pb-[4vw] border-b-[1px] border-[#2d2f36] px-[10px]">
         <Title title="新歌新碟\数字专辑"></Title>
         <Song />
       </div>

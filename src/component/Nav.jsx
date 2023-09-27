@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { TabBar } from "antd-mobile";
+import { Icon } from "@iconify/react";
 import {
-  AppOutline,
   MessageOutline,
   UnorderedListOutline,
   UserOutline,
@@ -15,16 +15,16 @@ export default function Nav() {
   const tabs = [
     {
       key: "/Home",
-      title: "首页",
-      icon: <AppOutline />,
+      title: "发现",
+      icon: <Icon icon="ri:netease-cloud-music-fill" color="red" />,
     },
     {
-      key: "/Button",
-      title: "待办",
+      key: "/Mv",
+      title: "MV排行榜",
       icon: <UnorderedListOutline />,
     },
     {
-      key: "/Buttons",
+      key: "/playlist",
       title: "消息",
       icon: <MessageOutline />,
     },
@@ -35,7 +35,7 @@ export default function Nav() {
     },
   ];
   return (
-    <div className="fixed left-0 bottom-0 w-[100%] border-t border-[#ccc] pt-2 bg-[#9898a9] z-[50]">
+    <div className="fixed left-0 bottom-0 w-[100%] border-t border-[#ccc] pt-2 bg-[#31333a] z-[50]">
       <TabBar onChange={(value) => setRouteActive(value)}>
         {tabs.map((item) => (
           <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
