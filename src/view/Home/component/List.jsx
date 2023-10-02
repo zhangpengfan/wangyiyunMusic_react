@@ -1,11 +1,10 @@
 import React from "react";
-import { playsong } from "../../../service/index";
+import { CarouselMap } from "../../../service/index";
 import { useEffect, useState } from "react";
-// import BScroll from '@better-scroll/core'
 export default function List() {
   let [list, setlist] = useState([]);
   useEffect(() => {
-    playsong().then((res) => {
+    CarouselMap().then((res) => {
       setlist(res.data.data.blocks[3].creatives);
     });
   }, []);

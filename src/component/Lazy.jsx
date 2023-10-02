@@ -6,7 +6,7 @@ export default function Laycoponent(Props) {
   return (
     <React.Suspense
       fallback={
-        <div>
+        <div className="h-[100vh]">
           <Skeleton.Title animated />
           <Skeleton.Paragraph lineCount={10} animated />
         </div>

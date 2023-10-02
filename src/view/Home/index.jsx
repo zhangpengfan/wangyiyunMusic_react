@@ -1,6 +1,6 @@
 import React from "react";
+import { useState } from "react";
 import { Icon } from "@iconify/react";
-import Recommendedplaylists from "./component/Recommendedplaylists.jsx";
 import Carouselmap from "./component/Carouselmap.jsx";
 import Menu from "./component/Menu.jsx";
 import Song from "./component/Song.jsx";
@@ -9,13 +9,31 @@ import Title from "../../component/Title.jsx";
 import MusicCalendar from "./component/Musiccalendar.jsx";
 import List from "./component/List.jsx";
 import { NavLink } from "react-router-dom";
-// import {useNavigate} re
+import { Popup } from "antd-mobile";
+import Sidebar from "./component/Sidebar.jsx";
 export default function Index() {
+  const [visible, setVisible] = useState(false);
   return (
     <div className="w-full bg-[#1a1c23] pb-[60px]">
+      {/* 侧边栏 */}
+      <Popup
+        visible={visible}
+        onMaskClick={() => {
+          setVisible(false);
+        }}
+        position="left"
+        bodyStyle={{ width: "90vw" }}
+      >
+        <Sidebar />
+      </Popup>
       {/* 头部搜索栏 */}
       <div className="h-[20.49vw] w-[100%] flex justify-around items-center bg-[#1a1c23] dark:bg-[#e9e6fc]">
-        <div className="mt-[2vw]">
+        <div
+          className="mt-[2vw]"
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
           <Icon icon="ri:menu-fill" color="#78758b" width="30" />
         </div>
         <div className="relative mt-[2vw]">
@@ -48,8 +66,7 @@ export default function Index() {
       </div>
       {/* 推荐歌单 */}
       <div className="w-screen mt-[9.7vw] border-b-[1px] border-[#2d2f36] px-[10px]">
-        <Title title="推荐歌单"></Title>
-        <Recommendedplaylists />
+        <Title title="推荐歌单" />
       </div>
       {/* 新歌 */}
       <div className="w-screen mt-[6vw] pb-[4vw] border-b-[1px] border-[#2d2f36] px-[10px]">
