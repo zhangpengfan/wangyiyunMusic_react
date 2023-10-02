@@ -12,12 +12,6 @@ export default function App() {
           element={<Laycoponent path="Search/Search.jsx" />}
         />
         <Route path="/Mv" element={<Laycoponent path="Mv/Mv.jsx" />} />
-        <Route
-          path="/PersonalCenter"
-          element={<Laycoponent path="PersonalCenter/PersonalCenter.jsx" />}
-        />
-        <Route path="/Playlist" element={<Laycoponent path="Playlist/Playlist.jsx" />} />
-        <Route path="/Login" element={<Laycoponent path="login/Login.jsx" />} />
         <Route path="*" element={<Laycoponent path="404/Nofont.jsx" />} />
       </Routes>
       <Nav />
