@@ -1,15 +1,20 @@
 import axios from "axios";
+// import store from "storejs"
 const http = axios.create({
   baseURL: "https://netease-cloud-music-api-five-roan-88.vercel.app"
 });
+//拦截
+// http.interceptors.request.use(function (config) {
+//   const cookie = store.get('__m__cookie') ?? "";
+//   config.params = config.params || {};
+//   config.params.cookie = cookie;
+//   console.log(config);
+// })
+
 //轮播图
 export const CarouselMap = () => http.get("/homepage/block/page");
 //菜单
 export const menu = () => http.get("/homepage/dragon/ball")
-//推荐歌单
-export const recommondList = () => http.get('/homepage/block/page')
-//新歌排行榜
-export const playsong = () => http.get("/homepage/block/page");
 //音乐日历
 export const Musiccalendar = (startTime, endTime) => http.get('/calendar', {
   params: {
@@ -25,6 +30,16 @@ export async function fetchToplistDetail() {
 }
 //搜索框内容
 export const SearchBox = (params) => http.get(`cloudsearch?keywords=${params}`)
-//mv
+//mv列表
 export const MvList = (area) => http.get('/top/mv', { params: { limit: 50, area } })
-//视频
+// 歌曲列表数据
+export const songDetails = (params) => http.get(`/playlist/detail?id=${params}`)//头部数据
+export const fetchSongList = (params) => http.get(`/playlist/track/all?id=${params}`)//歌曲数据
+export const musicSlider = (params) => http.get(`related/playlist?id=${params}`)//头部轮播数据
+
+//登录扫码获取个人数据
+export const getQrKey = () => http.get('/login/qr/key')//获取生成二维码的key
+export const getQrInfo = (params) => http.get('/login/qr/create', { params });//生成二维码
+export const checkQrStatus = (params) => http.get('/login/qr/check', { params })//二维码扫码状态
+export const getUserDetail = (uid) => http.get('/user/detail', { params: { uid } });
+export const getUserAccount = () => http.get('/user/account');

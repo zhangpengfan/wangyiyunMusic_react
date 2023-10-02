@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { playsong } from "../../../service/index.js";
+import { CarouselMap } from "../../../service/index.js";
 export default function Song() {
   let [lists, setlist] = useState([]);
   useEffect(() => {
-    playsong()
+    CarouselMap()
       .then((res) => {
         setlist(res.data.data.blocks[5].creatives);
       })

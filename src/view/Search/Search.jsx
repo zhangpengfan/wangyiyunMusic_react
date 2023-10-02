@@ -25,8 +25,6 @@ export default function Search() {
         console.log(err);
       });
   }, [content]);
-  // console.log("当前content内容", content);
-  // console.log("当前serach状态", serach);
   const MenuData = [
     {
       icon: "ph:user-fill",
@@ -157,7 +155,7 @@ export default function Search() {
         <div className="absolute top-0 left-0 w-[100%] bg-[#1a1c23] z-[999] px-[10px]">
           {serach.map((item, index) => (
             <div
-              className="flex items-center py-[10px] px-[10px] border-b border-[#282a31]"
+              className="flex items-center p-[10px] border-b border-[#282a31]"
               key={index}
             >
               <Icon icon="basil:search-outline" color="white" />

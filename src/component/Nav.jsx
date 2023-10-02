@@ -24,8 +24,8 @@ export default function Nav() {
       icon: <UnorderedListOutline />,
     },
     {
-      key: "/playlist",
-      title: "消息",
+      key: "/PersonalCenter",
+      title: "我的",
       icon: <MessageOutline />,
     },
     {
@@ -35,7 +35,7 @@ export default function Nav() {
     },
   ];
   return (
-    <div className="fixed left-0 bottom-0 w-[100%] border-t border-[#ccc] pt-2 bg-[#31333a] z-[50]">
+    <div className="fixed left-0 bottom-0 w-[100%] border-t border-[#ccc] pt-2 bg-[#31333a] z-[150]">
       <TabBar onChange={(value) => setRouteActive(value)}>
         {tabs.map((item) => (
           <TabBar.Item key={item.key} icon={item.icon} title={item.title} />

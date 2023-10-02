@@ -1,12 +1,16 @@
 import React from "react";
 import { Swiper } from "antd-mobile";
 import { useEffect, useState } from "react";
-import { recommondList } from "../../../service/index.js";
+import { CarouselMap } from "../../../service/index.js";
 import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
 export default function Recommendedplaylists() {
+  const navigte = useNavigate();
   let [lists, setlist] = useState([]);
+  let [playlistId, setplaylistId] = useState("");
+  console.log(playlistId);
   useEffect(() => {
-    recommondList()
+    CarouselMap()
       .then((res) => {
         setlist(res.data.data.blocks[1].creatives);
       })
@@ -78,7 +82,13 @@ export default function Recommendedplaylists() {
                     src={item.uiElement.image.imageUrl}
                     alt=""
                     className="w-[30vw] h-[30vw] rounded-2xl"
+                    onClick={() => {
+                      setplaylistId(item.resources[0].resourceId);
+                      navigte("/Playlist");
+                      console.log(playlistId);
+                    }}
                   />
+
                   <Icon
                     icon="ion:play"
                     width="10"
