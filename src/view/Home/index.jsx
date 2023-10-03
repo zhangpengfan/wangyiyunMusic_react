@@ -8,10 +8,11 @@ import Hotopic from "./component/Hottopic.jsx";
 import Title from "../../component/Title.jsx";
 import MusicCalendar from "./component/Musiccalendar.jsx";
 import List from "./component/List.jsx";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Popup } from "antd-mobile";
 import Sidebar from "./component/Sidebar.jsx";
 export default function Index() {
+  const naviget = useNavigate();
   const [visible, setVisible] = useState(false);
   return (
     <div className="w-full bg-[#1a1c23] pb-[60px]">
@@ -28,22 +29,17 @@ export default function Index() {
       </Popup>
       {/* 头部搜索栏 */}
       <div className="h-[20.49vw] w-[100%] flex justify-around items-center bg-[#1a1c23] dark:bg-[#e9e6fc]">
-        <div
-          className="mt-[2vw]"
-          onClick={() => {
-            setVisible(true);
-          }}
-        >
+        <div className="mt-[2vw]" onClick={() => { setVisible(true); }}>
           <Icon icon="ri:menu-fill" color="#78758b" width="30" />
         </div>
         <div className="relative mt-[2vw]">
-          <NavLink to={"/Search"}>
-            <input
-              type="text"
-              className="rounded-3xl w-[76.39vw] pl-[8vw] bg-[#ebdbfa]"
-              placeholder="明天你好 -牛奶咖啡"
-            />
-          </NavLink>
+          <input
+            type="text"
+            className="rounded-3xl w-[76.39vw] pl-[8vw] bg-[#ebdbfa]"
+            placeholder="明天你好 -牛奶咖啡"
+            onClick={() => naviget("/Search")}
+          />
+
           <span className="absolute top-1 left-1">
             <Icon icon="circum:search" color="#78758b" />
           </span>
