@@ -49,21 +49,13 @@ export default function Mvlist() {
           <p>MV排行榜</p>
         </div>
         <div className="px-[4vw] mt-[10px] w-[100%]">
-          <Tabs
-            onChange={(value) => {
-              setlist(value);
-            }}
-          >
+          <Tabs onChange={(value) => { setlist(value) }}>
             {mvtitle.map((index) => (
               <Tabs.Tab title={index} key={index}>
                 {maps.map((item, index) => (
                   <div className="w-[92vw] pr-[20px]" key={index}>
                     <div className="w-[100%] h-[52vw] relative">
-                      <img
-                        src={item.cover}
-                        alt=""
-                        className="w-[100%] h-[52vw] bg-black rounded-[3vw] mb-[2.7vw]"
-                      />
+                      <img src={item.cover} alt="" className="w-[100%] h-[52vw] bg-black rounded-[3vw] mb-[2.7vw]" />
                       <div class="absolute top-[2vw] text-[#fff] right-[2vw] text-[2.6vw] flex items-center">
                         <Icon icon="mdi:play" color="white" />
                         <span className="ml-1">
@@ -84,7 +76,7 @@ export default function Mvlist() {
                         <div className="w-[5.3vw] text-[#999999] text-[2vw] mr-[2.8vw] flex items-center justify-center"></div>
                         <div className=" flex-1 line-clamp-1 text-[#7c7c7c] text-[2vw]">
                           <span>{item.artistName}</span>
-                          <span>{}</span>
+                          <span>{ }</span>
                         </div>
                       </div>
                     </div>

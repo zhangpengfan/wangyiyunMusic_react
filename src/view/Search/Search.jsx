@@ -113,7 +113,7 @@ export default function Search() {
       {/* 排行榜 */}
       <div className="overflow-auto lunbo">
         <div className="flex mt-7 px-[10px] w-[1000%]">
-          {list.map((item, index) => (
+          {list.map((item) => (
             <div
               key={item.id}
               className="w-[61vw] bg-[#31333a] rounded-[2vw] ml-[2.344vw]"
@@ -131,7 +131,7 @@ export default function Search() {
                 {item.tracks.slice(0, 20).map((item, index) => (
                   <div
                     className="my-[2.7vw] flex items-center h-[8vw]"
-                    key={item.id}
+                    key={index}
                   >
                     <span
                       className={`text-[3.2vw] w-[8.83vw] text-center font-[400] ${

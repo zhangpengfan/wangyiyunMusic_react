@@ -6,15 +6,13 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/Home" />} />
-        <Route path="/Home" element={<Laycoponent path="Home/index.jsx" />} />
-        <Route
-          path="/Search"
-          element={<Laycoponent path="Search/Search.jsx" />}
-        />
-        <Route path="/Mv" element={<Laycoponent path="Mv/Mv.jsx" />} />
+        <Route path="/Home" element={<> <Nav /><Laycoponent path="Home/index.jsx" /></>} />
+        <Route path="/Search" element={<Laycoponent path="Search/Search.jsx" />} />
+        <Route path="/Mv" element={<> <Nav /> <Laycoponent path="Mv/Mv.jsx" /></>} />
         <Route path="*" element={<Laycoponent path="404/Nofont.jsx" />} />
+        <Route path="/Login" element={<Laycoponent path="login/Login.jsx" />} />
+        <Route path="/PersonalCenter" element={<><Nav /><Laycoponent path="PersonalCenter/PersonalCenter.jsx" /> </>} />
       </Routes>
-      <Nav />
     </BrowserRouter>
   );
 }
