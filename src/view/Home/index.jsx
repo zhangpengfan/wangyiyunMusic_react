@@ -5,6 +5,7 @@ import Carouselmap from "./component/Carouselmap.jsx";
 import Menu from "./component/Menu.jsx";
 import Song from "./component/Song.jsx";
 import Hotopic from "./component/Hottopic.jsx";
+import Recommendedplaylists from "./component/Recommendedplaylists.jsx";
 import Title from "../../component/Title.jsx";
 import MusicCalendar from "./component/Musiccalendar.jsx";
 import List from "./component/List.jsx";
@@ -63,6 +64,7 @@ export default function Index() {
       {/* 推荐歌单 */}
       <div className="w-screen mt-[9.7vw] border-b-[1px] border-[#2d2f36] px-[10px]">
         <Title title="推荐歌单" />
+        <Recommendedplaylists />
       </div>
       {/* 新歌 */}
       <div className="w-screen mt-[6vw] pb-[4vw] border-b-[1px] border-[#2d2f36] px-[10px]">

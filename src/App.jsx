@@ -11,6 +11,7 @@ export default function App() {
         <Route path="/Mv" element={<> <Nav /> <Laycoponent path="Mv/Mv.jsx" /></>} />
         <Route path="*" element={<Laycoponent path="404/Nofont.jsx" />} />
         <Route path="/Login" element={<Laycoponent path="login/Login.jsx" />} />
+        <Route path="/Playlist/:id" element={<Laycoponent path="Playlist/Playlist.jsx" />} />
         <Route path="/PersonalCenter" element={<><Nav /><Laycoponent path="PersonalCenter/PersonalCenter.jsx" /> </>} />
       </Routes>
     </BrowserRouter>
