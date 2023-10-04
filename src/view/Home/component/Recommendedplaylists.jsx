@@ -7,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 export default function Recommendedplaylists() {
   const navigte = useNavigate();
   let [lists, setlist] = useState([]);
-  let [playlistId, setplaylistId] = useState("");
-  console.log(playlistId);
+  const plsylist = (id) => {
+    console.log(id)
+    navigte(`/Playlist/${id}`)
+  }
   useEffect(() => {
     CarouselMap()
       .then((res) => {
@@ -82,13 +84,7 @@ export default function Recommendedplaylists() {
                     src={item.uiElement.image.imageUrl}
                     alt=""
                     className="w-[30vw] h-[30vw] rounded-2xl"
-                    onClick={() => {
-                      setplaylistId(item.resources[0].resourceId);
-                      navigte("/Playlist");
-                      console.log(playlistId);
-                    }}
-                  />
-
+                    onClick={() => { plsylist(item.resources[0].resourceId) }} />
                   <Icon
                     icon="ion:play"
                     width="10"

@@ -25,4 +25,20 @@
 .adm-tabs-tab {
   color: cadetblue !important;
 }
+.post {
+  position: sticky;
+  top: 13vw;
+  z-index: 998;
+  background-color: white;
+}
+.transition {
+  transition: opacity 1s ease-in-out;
+}
 
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
