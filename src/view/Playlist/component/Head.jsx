@@ -13,7 +13,7 @@ export default function Heaed(props) {
             });
     }, [props.Id]);
     return (
-        <div className="transition-all">
+        <div className="">
             <div className="h-[29vw] flex pt-[2.6vw] mt-[10vw]">
                 <div className="w-[24vw] h-[25vw] pt-[1vw] relative">
                     <img src={song?.coverImgUrl} alt="" className="w-[24vw] h-[24vw] rounded-[10px] relative z-[2]" />

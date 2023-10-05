@@ -13,7 +13,7 @@ export default function HeadCarousel(props) {
     }, [props.Id]);
     return (<div className="w-[100%] mt-[10vw]">
         <div className="h-[10vw] flex items-center text-[#fff] opacity-50 text-[3vw]">喜欢这个歌单的用户也听了</div>
-        <div className="flex overflow-auto  lunbo">
+        <div className="flex overflow-auto lunbo">
             {lunbo.map((item) => (
                 <div className="w-[28vw] mr-[2.5vw]" key={item.id}>
                     <div className="w-[28vw] h-[28vw] rounded-[8px] overflow-hidden relative pt-[1vw]">

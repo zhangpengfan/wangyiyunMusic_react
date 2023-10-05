@@ -1,5 +1,7 @@
 import Laycoponent from "./component/Lazy.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+// import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
 import Nav from "./component/Nav";
 export default function App() {
   return (

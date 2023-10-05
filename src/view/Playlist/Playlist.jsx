@@ -45,10 +45,13 @@ export default function Playlist() {
         </div>
       </div>
       {/* 头部数据 */}
-      <div className={`transition ${show ? 'fade-in' : 'fade-out'}`} style={{ opacity: show ? 1 : 1 }}>
-        {show ? <Heaed Id={id} /> : <HeadCarousel Id={id} />}
+      <div class={`transition ${show ? "opacity-1 block animate-fadeIn" : "opacity-0 hidden animate-fadeOut"}`}>
+        <Heaed Id={id} />
       </div>
-      <div className={`absolute right-[3.4vw] top-[15vw] w-[6vw] h-[6vw] rounded-[50%] bg-opacity-20 bg-[#fff] flex items-center justify-center transition ${show ? 'fade-in' : 'fade-out'}`}
+      <div class={`transition ${show ? "opacity-0 hidden animate-fadeOut" : "opacity-1 block animate-fadeIn"}`}>
+        <HeadCarousel Id={id} />
+      </div>
+      <div className="absolute right-[3.4vw] top-[15vw] w-[6vw] h-[6vw] rounded-[50%] bg-opacity-20 bg-[#fff] flex items-center justify-center"
         onClick={() => setshow(!show)} >
         <Icon icon={show ? 'oi:caret-bottom' : 'ep:caret-top'} color="white" />
       </div>
@@ -91,7 +94,7 @@ export default function Playlist() {
               <span>{item.ar[0].name}</span>
             </p>
           </div>
-          <Icon icon="arcticons:fpt-play" color="#b3b3b3" />
+          <Icon icon="arcticons:fpt-play" color="black" />
           <Icon icon="simple-line-icons:options-vertical" width="15" color="#b3b3b3" />
         </div>
       ))}

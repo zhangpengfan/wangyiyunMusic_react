@@ -14,7 +14,7 @@ export default function List() {
   return (
     <div className="w-[100%] overflow-auto mt-[2vw] lunbo">
       <div className="flex  flex-row">
-        {list.map((item) => (
+        {list?.map((item) => (
           <ul key={item.id} className="ml-[2vw] shadow-md shadow-top">
             <li className="w-[90.56vw] h-[54.03vw] rounded-[.625rem] shadow-blue-500/50 bg-[#272930] dark:bg-[#ffffff]">
               <div className="w-[85vw] flex ml-[4vw] flex-row items-center justify-between">
@@ -28,7 +28,7 @@ export default function List() {
               {[0, 1, 2].map((index) => (
                 <div key={index.id} className="h-[12vw] w-[100%] flex items-center justify-around mt-[2vw]">
                   <div>
-                    <img src={item.resources[index].resourceExtInfo?.songData?.album.blurPicUrl} alt="" className="h-[10.63vw] w-[10.69vw] rounded-lg" />
+                    <img src={item.resources[index].resourceExtInfo?.songData?.album?.blurPicUrl} alt="" className="h-[10.63vw] w-[10.69vw] rounded-lg" />
                   </div>
                   <div className=" font-bold">
                     <span className={index === 1 ? "text-[#818AAC]" : index === 2 ? "text-[#bd9642]" : "text-[#CD8354]"}>

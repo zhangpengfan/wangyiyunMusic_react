@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
-import { Switch } from "antd-mobile";
+import { Switch, Dialog } from "antd-mobile";
+import storejs from "storejs";
+import { fetchUserAccount } from "../../../service/index"
 export default function Sidebar() {
+  const cookie = storejs.get('__m__cookie');
+  let [user, setuser] = useState([])
   const navigte = useNavigate();
+  useEffect(() => {
+    fetchUserAccount().then((res) => {
+      console.log("用户数据", res.data.profile)
+      setuser(res.data.profile)
+    })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [setuser])
+  const removeUserData = async () => {
+    const result = await Dialog.confirm({
+      content: '确认退出登录吗',
+    })
+    if (result) {
+      storejs.remove('__m__cookie'); // 删除用户信息
+      setuser = [];
+      navigte('/login');
+    } else {
+      console.log("点击了取消")
+    }
+  }
   // 侧边栏数据
   const data = [
     {
@@ -103,7 +128,6 @@ export default function Sidebar() {
       id: "sidebar#4",
     },
   ];
-  const cookie = null;
   return (
     <div className="p-[7vw] bg-[#151515] h-[100%]">
       {/* 用户头像 */}
@@ -115,10 +139,10 @@ export default function Sidebar() {
               onClick={() => navigte("/PersonalCenter")}
             >
               <div className="w-[8vw] h-[8vw] rounded-[50%] mr-[2vw] bg-[#f7f2f1] flex items-center justify-center overflow-hidden">
-                <img src="" alt="" />
+                <img src={user.avatarUrl} alt="" />
               </div>
               <span className="text-[3.5vw] text-[#fff] ">
-                {/* {userData.nickname} */}
+                {user.nickname}
               </span>
             </div>
           ) : (
@@ -223,7 +247,8 @@ export default function Sidebar() {
           </div>
         ))}
         {cookie ? (
-          <div className="dark:bg-[#2c2c2c] h-[12vw] px-[3.6vw] bg-[#2c2c2c] w-[76vw] mt-[4vw] rounded-[15px] mx-auto leading-[12vw] text-center text-[3.6vw] text-[#ef4239]">
+          <div className="dark:bg-[#2c2c2c] h-[12vw] px-[3.6vw] bg-[#2c2c2c] w-[76vw] mt-[4vw] rounded-[15px] mx-auto leading-[12vw] text-center text-[3.6vw] text-[#ef4239]"
+            onClick={() => removeUserData()}>
             退出登录/关闭
           </div>
         ) : (

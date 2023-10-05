@@ -22,7 +22,7 @@ export default function Song() {
               key={item.index}
             >
               <img
-                src={item.uiElement.image.imageUrl}
+                src={item.uiElement?.image?.imageUrl}
                 className="rounded-lg"
                 alt=""
               />

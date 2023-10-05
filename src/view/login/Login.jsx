@@ -9,7 +9,6 @@ export default function Login() {
   let unkey = useRef("");
   const navigate = useNavigate();
   let timer = useRef(null);
-
   const checkstantic = () => {
     timer.current = setInterval(() => {
       const timestamp = Date.now();
@@ -18,8 +17,9 @@ export default function Login() {
         console.log(res.data.code);
         if ([800, 802].includes(res.data.code)) clearInterval(timer.current);
         if (res.data.code === 803) {
+          console.log("登录成功")
           navigate("/Home");
-          storejs.set("cookie", res.data.cookie);
+          storejs.set("__m__cookie", res.data.cookie);
         }
       });
     }, 3500);
@@ -37,7 +37,11 @@ export default function Login() {
       .catch((err) => {
         console.log(err);
       });
-    return () => clearInterval(timer.current);
+    return () => {
+      if (timer.current) {
+        clearInterval(timer.current);
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
