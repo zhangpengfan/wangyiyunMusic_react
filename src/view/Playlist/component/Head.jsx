@@ -7,11 +7,12 @@ export default function Heaed(props) {
         songDetails(props.Id)
             .then((res) => {
                 setsong(res.data.playlist)
+                props.onSongData(res.data.playlist);
             })
             .catch((err) => {
                 console.log(err);
             });
-    }, [props.Id]);
+    }, [props, props.Id]);
     return (
         <div className="">
             <div className="h-[29vw] flex pt-[2.6vw] mt-[10vw]">

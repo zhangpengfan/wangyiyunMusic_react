@@ -8,7 +8,6 @@ export default function Recommendedplaylists() {
   const navigte = useNavigate();
   let [lists, setlist] = useState([]);
   const plsylist = (id) => {
-    console.log(id)
     navigte(`/Playlist/${id}`)
   }
   useEffect(() => {

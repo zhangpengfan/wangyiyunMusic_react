@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchSongList, songDetails } from "../../service/index";
+import { fetchSongList } from "../../service/index";
 import { useParams, NavLink } from 'react-router-dom';
 import { Icon } from "@iconify/react";
 import Heaed from "./component/Head";
@@ -9,15 +9,9 @@ export default function Playlist() {
   let [songlist, setsonglist] = useState([])
   let [show, setshow] = useState(true)
   let [song, setsong] = useState([])
-  useEffect(() => {
-    songDetails(id)
-      .then((res) => {
-        setsong(res.data.playlist)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [id]);
+  const handleSongData = (songData) => {
+    setsong(songData)
+  };
   useEffect(() => {
     fetchSongList(id)
       .then((res) => {
@@ -46,7 +40,7 @@ export default function Playlist() {
       </div>
       {/* 头部数据 */}
       <div class={`transition ${show ? "opacity-1 block animate-fadeIn" : "opacity-0 hidden animate-fadeOut"}`}>
-        <Heaed Id={id} />
+        <Heaed Id={id} onSongData={handleSongData} />
       </div>
       <div class={`transition ${show ? "opacity-0 hidden animate-fadeOut" : "opacity-1 block animate-fadeIn"}`}>
         <HeadCarousel Id={id} />

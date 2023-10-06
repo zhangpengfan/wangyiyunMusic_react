@@ -13,6 +13,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
 .adm-tabs-tab-line {
   background-color: red;
 }
