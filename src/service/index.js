@@ -43,3 +43,6 @@ export const checkQrStatus = (params) => http.get('/login/qr/check', { params })
 export const fetchUserAccount = () => http.get('/user/account', { params: { id: 123 } });//个人信息
 export const fetchUserDetail = (uid) => http.get('/user/detail', { params: { uid } });//用户详情
 export const fetchUserPlaylist = (uid) => http.get('/user/playlist', { params: { uid } });//用户歌单
+//更新数据
+export const getUpdate = (gender, birthday, nickname, province, city, signature) =>
+  http.get('/user/update', { params: { gender, birthday, nickname, province, city, signature } });

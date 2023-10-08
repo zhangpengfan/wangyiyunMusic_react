@@ -118,8 +118,8 @@ export default function PersonalCenter() {
             </div>
           </div>
           <div className="from-[#424242] to-[#303030] border-[#303030] w-[27vw] h-[28vw] rounded-[15px] bg-gradient-to-b relative">
-            <p className="text-[#AFAFAF] text-[2.6vw] h-[7.4vw] leading-[7.4vw] pl-[1.7vw]">我的喜欢</p>
-            <p className="text-[#DFDFDF] text-[3.5vw] pl-[1.7vw]">累计听歌&nbsp;{userData?.listenSongs}首</p>
+            <p className="text-[#AFAFAF] text-[2.6vw] h-[7.4vw] leading-[7.4vw] pl-[1.7vw]">累计听歌</p>
+            <p className="text-[#DFDFDF] text-[3.5vw] pl-[1.7vw]">{userData?.listenSongs}首</p>
             <div className="text-[#7D7D7D] absolute bottom-[2.5vw] left-[1.7vw] text-[2.4vw] flex items-center">
               <Icon icon="ep:histogram" color="white" />
               <span className="ml-1">喜欢的音乐</span>
