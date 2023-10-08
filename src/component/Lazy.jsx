@@ -8,7 +8,7 @@ export default function Laycoponent(Props) {
       fallback={
         <div className="h-[100vh]">
           <Skeleton.Title animated />
-          <Skeleton.Paragraph lineCount={10} animated />
+          <Skeleton.Paragraph lineCount={20} animated />
         </div>
       }
     >

@@ -16,7 +16,7 @@ export default function Index() {
   const naviget = useNavigate();
   const [visible, setVisible] = useState(false);
   return (
-    <div className="w-full bg-[#1a1c23] pb-[60px]">
+    <div className="w-full bg-[#1a1c23] pb-[60px] overflow-hidden">
       {/* 侧边栏 */}
       <Popup
         visible={visible}
@@ -29,29 +29,27 @@ export default function Index() {
         <Sidebar />
       </Popup>
       {/* 头部搜索栏 */}
-      <div className="h-[20.49vw] w-[100%] flex justify-around items-center bg-[#1a1c23] dark:bg-[#e9e6fc]">
-        <div className="mt-[2vw]" onClick={() => { setVisible(true); }}>
+      <div className='flex w-[100%] h-[20.49vw] items-center relative justify-between p-[4vw] bg-[#1a1c23]'>
+        <span onClick={() => { setVisible(true); }}>
           <Icon icon="ri:menu-fill" color="#78758b" width="30" />
-        </div>
-        <div className="relative mt-[2vw]">
-          <input
-            type="text"
-            className="rounded-3xl w-[76.39vw] pl-[8vw] bg-[#ebdbfa]"
-            placeholder="明天你好 -牛奶咖啡"
-            onClick={() => naviget("/Search")}
-          />
-
-          <span className="absolute top-1 left-1">
-            <Icon icon="circum:search" color="#78758b" />
-          </span>
-          <span className="absolute top-1 left-[16.25rem]">
-            <Icon icon="ph:scan-duotone" color="#78758b" />
-          </span>
-        </div>
-
-        <div className="mt-[2vw]">
-          <Icon icon="ph:microphone-fill" color="#78758b" width="30" />
-        </div>
+        </span>
+        <Icon
+          icon='iconamoon:search'
+          className='absolute ml-[10vw] w-[4vw] h-[4vw]'
+        />
+        <input
+          onClick={() => {
+            naviget("/Search");
+          }}
+          type='text'
+          className='w-[74vw] h-[9vw] border rounded-[20px] indent-[8vw]'
+          placeholder='明天你好-牛奶咖啡'
+        />
+        <Icon
+          icon='teenyicons:scan-solid'
+          className='absolute ml-[75vw] w-[4vw] h-[4vw]'
+        />
+        <Icon icon="ph:microphone-fill" color="#78758b" width="30" />
       </div>
       {/* 轮播图 */}
       <div className="pt-[5vw] w-[100%] p-[4vw] rounded-2xl mx-[auto]">

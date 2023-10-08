@@ -4,42 +4,25 @@ import { Icon } from '@iconify/react';
 import { fetchUserAccount, fetchUserDetail, fetchUserPlaylist } from "../../service/index"
 import { NavLink } from 'react-router-dom';
 export default function PersonalCenter() {
-  let [user, setuser] = useState([])
   let [userData, setuserData] = useState([])
   let [song, setsonglist] = useState([])
   let [create, setcreate] = useState([])
-  //获取ID
   useEffect(() => {
     fetchUserAccount().then((res) => {
-      setuser(res.data.profile.userId)
-      console.log("当前ID", res.data.profile.userId)
+      return res.data.profile.userId
     })
+      .then((userId) => fetchUserDetail(userId).then((res) => {
+        setuserData(res.data)
+        return userId
+      }).then((userId) => fetchUserPlaylist(userId).then((res) => {
+        setsonglist(res.data.playlist.filter((item) => item.subscribed))//收藏歌单
+        setcreate(res.data.playlist.filter((item) => !item.subscribed))//创建歌单
+      }))
+      )
       .catch((err) => {
         console.log(err)
       })
-  }, [setuser])
-  //个人信息
-  useEffect(() => {
-    fetchUserDetail(user).then((res) => {
-      setuserData(res.data)
-      console.log(res.data)
-    })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [user])
-
-  //歌单
-  useEffect(() => {
-    fetchUserPlaylist(user).then((res) => {
-      setsonglist(res.data.playlist.filter((item) => item.subscribed))//收藏歌单
-      setcreate(res.data.playlist.filter((item) => !item.subscribed))//创建歌单
-    })
-      .catch((err) => {
-        console.log(err)
-      })
-
-  }, [user])
+  }, [])
   const year = (userData) => {
     const createTime = userData
     const timestamp = Date.now() - createTime;
@@ -60,7 +43,7 @@ export default function PersonalCenter() {
     {/* 头部背景 */}
     <div className="w-[100%] h-[74vw] relative">
       <div className="w-[100%] h-[15vw] px-[4.5vw] flex items-center justify-between fixed top-0 z-[10]">
-        <NavLink to={-1}>
+        <NavLink to={"./Home"}>
           <Icon icon="teenyicons:left-outline" color="white" />
         </NavLink>
         <Icon icon="simple-line-icons:options-vertical" width="15" color='white' />
