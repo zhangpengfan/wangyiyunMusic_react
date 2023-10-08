@@ -10,20 +10,22 @@ export default function Login() {
   const navigate = useNavigate();
   let timer = useRef(null);
   const checkstantic = () => {
+    clearInterval(timer.current)
     timer.current = setInterval(() => {
       const timestamp = Date.now();
       checkQrStatus({ key: unkey.current, timestamp }).then((res) => {
         settp(res.data.code);
-        console.log(res.data.code);
-        if ([800, 802].includes(res.data.code)) clearInterval(timer.current);
+        if ([800, 802].includes(res.data.code)) clearInterval(timer);
         if (res.data.code === 803) {
           console.log("登录成功")
           navigate("/Home");
           storejs.set("__m__cookie", res.data.cookie);
+          clearInterval(timer)
         }
       });
     }, 3500);
   };
+  console.log("timer.current", timer.current)
   useEffect(() => {
     getQrKey()
       .then((res) => {
@@ -37,11 +39,7 @@ export default function Login() {
       .catch((err) => {
         console.log(err);
       });
-    return () => {
-      if (timer.current) {
-        clearInterval(timer.current);
-      }
-    };
+    return () => { clearInterval(timer.current) }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

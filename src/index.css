@@ -22,11 +22,11 @@
 .adm-tabs-tab-line {
   background-color: red;
 }
-.active-line-color{
+.active-line-color {
   color: red;
 }
 .adm-tab-bar-item-active {
- color: red !important;
+  color: red !important;
 }
 .adm-tabs-tab {
   color: cadetblue !important;
@@ -84,5 +84,3 @@
     opacity: 0;
   }
 }
-
-
