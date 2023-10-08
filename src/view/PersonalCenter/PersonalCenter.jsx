@@ -22,6 +22,7 @@ export default function PersonalCenter() {
   useEffect(() => {
     fetchUserDetail(user).then((res) => {
       setuserData(res.data)
+      console.log(res.data)
     })
       .catch((err) => {
         console.log(err)
@@ -31,14 +32,14 @@ export default function PersonalCenter() {
   //歌单
   useEffect(() => {
     fetchUserPlaylist(user).then((res) => {
-      setsonglist(res.data.playlist.filter((item) => item.subscribed))//收藏
-      setcreate(res.data.playlist.filter((item) => !item.subscribed))//创建
+      setsonglist(res.data.playlist.filter((item) => item.subscribed))//收藏歌单
+      setcreate(res.data.playlist.filter((item) => !item.subscribed))//创建歌单
     })
       .catch((err) => {
         console.log(err)
       })
+
   }, [user])
-  console.log("歌单信息", song)
   const year = (userData) => {
     const createTime = userData
     const timestamp = Date.now() - createTime;
@@ -86,7 +87,9 @@ export default function PersonalCenter() {
           </span>
         </div>
         <div className="flex items-center justify-center">
-          <span className='border-[#383838] text-[#EEEEEE] px-[3vw] py-[1vw]  text-[2.9vw] font-[800] flex items-center justify-center border-[1px] rounded-[200px] ml-[1.5vw]'>编辑资料</span>
+          <NavLink to={"./Edit"}>
+            <span className='border-[#383838] text-[#EEEEEE] px-[3vw] py-[1vw]  text-[2.9vw] font-[800] flex items-center justify-center border-[1px] rounded-[200px] ml-[1.5vw]'>编辑资料</span>
+          </NavLink>
           <span className='border-[#383838] text-[#EEEEEE] w-[7.7vw] h-[7.7vw] text-[2.9vw] font-[800] flex items-center justify-center border-[1px] rounded-[200px] ml-[1.5vw]'>
             <Icon icon="oi:caret-bottom" color="white" />
           </span>
@@ -107,9 +110,8 @@ export default function PersonalCenter() {
         <div className="flex justify-evenly">
           <div className="from-[#424242] to-[#303030] border-[#303030] w-[27vw] h-[28vw] rounded-[15px] bg-gradient-to-b relative">
             <p className="text-[#AFAFAF] text-[2.6vw] h-[7.4vw] leading-[7.4vw] pl-[1.7vw]">我的喜欢
-              {/* {song[0]?.trackCount} */}
             </p>
-            <p className="text-[#DFDFDF] text-[3.5vw] pl-[1.7vw]">首</p>
+            <p className="text-[#DFDFDF] text-[3.5vw] pl-[1.7vw]"> {song[0]?.trackCount}首</p>
             <div className="text-[#7D7D7D] absolute bottom-[2.5vw] left-[1.7vw] text-[2.4vw] flex items-center">
               <Icon icon="streamline:interface-favorite-heart-reward-social-rating-media-heart-it-like-favorite-love" color="white" />
               <span className="ml-1">喜欢的音乐</span>
@@ -117,7 +119,7 @@ export default function PersonalCenter() {
           </div>
           <div className="from-[#424242] to-[#303030] border-[#303030] w-[27vw] h-[28vw] rounded-[15px] bg-gradient-to-b relative">
             <p className="text-[#AFAFAF] text-[2.6vw] h-[7.4vw] leading-[7.4vw] pl-[1.7vw]">我的喜欢</p>
-            <p className="text-[#DFDFDF] text-[3.5vw] pl-[1.7vw]">累计听歌&nbsp;{userData?.listenSongs}</p>
+            <p className="text-[#DFDFDF] text-[3.5vw] pl-[1.7vw]">累计听歌&nbsp;{userData?.listenSongs}首</p>
             <div className="text-[#7D7D7D] absolute bottom-[2.5vw] left-[1.7vw] text-[2.4vw] flex items-center">
               <Icon icon="ep:histogram" color="white" />
               <span className="ml-1">喜欢的音乐</span>
@@ -224,4 +226,4 @@ export default function PersonalCenter() {
       </div>
     </div>
   </div>)
-} 
+}

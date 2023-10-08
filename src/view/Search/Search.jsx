@@ -134,9 +134,8 @@ export default function Search() {
                     key={index}
                   >
                     <span
-                      className={`text-[3.2vw] w-[8.83vw] text-center font-[400] ${
-                        index < 3 ? "text-[red]" : "text-[#858393] "
-                      }`}
+                      className={`text-[3.2vw] w-[8.83vw] text-center font-[400] ${index < 3 ? "text-[red]" : "text-[#858393] "
+                        }`}
                     >
                       {index + 1}
                     </span>

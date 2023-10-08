@@ -22,7 +22,6 @@ export default function Playlist() {
         console.log(err);
       });
   }, [id]);
-
   return (<div className="w-[100%]">
     <div className="bg-[#486D8D] p-[3vw] pb-[30px]">
       {/* 头部导航*/}

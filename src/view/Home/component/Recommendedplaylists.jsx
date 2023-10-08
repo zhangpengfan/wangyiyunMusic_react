@@ -39,13 +39,8 @@ export default function Recommendedplaylists() {
         <p className="text-[2.78vw] text-[white] dark:text-[black] scroll-item mt-[5vw]">
           {lists[0]?.resources[0].uiElement.mainTitle.title}
         </p>
-
         <div className="absolute top-[4vw] right-[2.5vw] font-[800] text-[#fff] flex items-center">
-          <Icon
-            icon="ion:play"
-            width="10"
-            className="text-[#fff] w-[3vw] h-[3vw]"
-          />
+          <Icon icon="ion:play" width="10" className="text-[#fff] w-[3vw] h-[3vw]" />
           <span className="font-[800] text-[2.5vw]">
             {dataTruncation(item.resourceExtInfo?.playCount)}
           </span>
@@ -74,15 +69,9 @@ export default function Recommendedplaylists() {
         <div className="pb-[10vw] w-[200%]">
           <ul className="mt-2 flex pb-[1vw] ">
             {lists.map((item) => (
-              <li
-                key={item.id}
-                className="whitespace-pre-wrap ml-[2vw] scroll-item relative shadow-md-up"
-              >
+              <li key={item.id} className="whitespace-pre-wrap ml-[2vw] scroll-item relative shadow-md-up">
                 <div className="h-[40.81vw] relative">
-                  <img
-                    src={item.uiElement.image.imageUrl}
-                    alt=""
-                    className="w-[30vw] h-[30vw] rounded-2xl"
+                  <img src={item.uiElement.image.imageUrl} alt="" className="w-[30vw] h-[30vw] rounded-2xl"
                     onClick={() => { plsylist(item.resources[0].resourceId) }} />
                   <Icon
                     icon="ion:play"
