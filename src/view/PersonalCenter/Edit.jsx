@@ -1,5 +1,6 @@
 import React from "react";
 import { List } from 'antd-mobile'
+import { getUpdate } from "../../service/index"
 const Edit = () => {
   return (<div>
     <List.Item>1</List.Item>
