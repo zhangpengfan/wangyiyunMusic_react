@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd-mobile": "^5.32.4",
     "axios": "^1.5.0",
+    "cross-env": "^7.0.3",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,8 +21,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
+    "start": "cross-env NODE_ENV=development craco start",
+    "build": "cross-env NODE_ENV=production craco build",
     "test": "craco test",
     "eject": "craco eject"
   },
