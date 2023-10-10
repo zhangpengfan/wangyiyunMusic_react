@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Tabs } from "antd-mobile";
 import { MvList } from "../../service";
 import { Icon } from "@iconify/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 const Wrapper = styled.div`
   .adm-tabs-tab-active {
@@ -18,12 +18,17 @@ const Wrapper = styled.div`
 `;
 export default function Mvlist() {
   const mvtitle = ["内地", "港台", "欧美", "韩国", "日本"];
+  const navigte = useNavigate()
+  const plsylist = (id) => {
+    navigte(`/Mv/Mvplay/${id}`)
+  }
   let [maps, setmap] = useState([]);
   let [list, setlist] = useState("");
   useEffect(() => {
     MvList(list)
       .then((res) => {
         setmap(res.data.data);
+        console.log(res.data.data)
       })
       .catch((err) => {
         console.log(err);
@@ -55,7 +60,7 @@ export default function Mvlist() {
                 {maps.map((item, index) => (
                   <div className="w-[92vw] pr-[20px]" key={index}>
                     <div className="w-[100%] h-[52vw] relative">
-                      <img src={item.cover} alt="" className="w-[100%] h-[52vw] bg-black rounded-[3vw] mb-[2.7vw]" />
+                      <img src={item.cover} alt="" className="w-[100%] h-[52vw] bg-black rounded-[3vw] mb-[2.7vw]" onClick={() => plsylist(item.id)} />
                       <div class="absolute top-[2vw] text-[#fff] right-[2vw] text-[2.6vw] flex items-center">
                         <Icon icon="mdi:play" color="white" />
                         <span className="ml-1">

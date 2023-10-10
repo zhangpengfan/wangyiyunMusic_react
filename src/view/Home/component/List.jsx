@@ -5,7 +5,6 @@ export default function List() {
   let [list, setlist] = useState([]);
   useEffect(() => {
     CarouselMap().then((res) => {
-      console.log(res)
       setlist(res.data.data.blocks[3].creatives);
     }).catch((err) => {
       console.log(err)

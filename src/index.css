@@ -2,85 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 .lunbo::-webkit-scrollbar {
-  height: 0px;
-  width: 0px;
+height: 0px;
+width: 0px;
 }
 .red-image {
-  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='colorize'><feColorMatrix type='matrix' values='1 0 0 0 0.698 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/></filter></svg>#colorize");
+filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='colorize'><feColorMatrix type='matrix' values='1 0 0 0 0.698 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/></filter></svg>#colorize");
 }
 .over {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 .line-clamp-1 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+overflow: hidden;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 1;
 }
 .adm-tabs-tab-line {
-  background-color: red;
+background-color: red;
 }
 .active-line-color {
-  color: red;
+color: red;
 }
 .adm-tab-bar-item-active {
-  color: red !important;
+color: red !important;
 }
 .adm-tabs-tab {
-  color: cadetblue !important;
+color: cadetblue !important;
 }
 .post {
-  position: sticky;
-  top: 13vw;
-  z-index: 998;
-  background-color: white;
+position: sticky;
+top: 13vw;
+z-index: 998;
+background-color: white;
 }
 .transition {
-  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+transition: opacity 0.5s ease, visibility 0s linear 0.5s;
 }
 
 .opacity-0 {
-  opacity: 0;
-  visibility: hidden;
+opacity: 0;
+visibility: hidden;
 }
 
 .opacity-1 {
-  opacity: 1;
-  visibility: visible;
+opacity: 1;
+visibility: visible;
 }
 
 .hidden {
-  display: none;
+display: none;
 }
 
 .block {
-  display: block;
+display: block;
 }
 
 .animate-fadeIn {
-  animation: fadeIn 1s;
+animation: fadeIn 1s;
 }
 
 .animate-fadeOut {
-  animation: fadeOut 1s;
+animation: fadeOut 1s;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+from {
+opacity: 1;
+}
+to {
+opacity: 0;
+}
+}
+.rotateAnimation {
+animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+from {
+transform: rotate(0deg);
+}
+
+to {
+transform: rotate(360deg);
+}
 }

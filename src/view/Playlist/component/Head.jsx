@@ -12,7 +12,8 @@ export default function Heaed(props) {
             .catch((err) => {
                 console.log(err);
             });
-    }, [props, props.Id]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.Id]);
     return (
         <div className="">
             <div className="h-[29vw] flex pt-[2.6vw] mt-[10vw]">
@@ -30,7 +31,7 @@ export default function Heaed(props) {
                         <img src={song?.creator?.avatarUrl} alt="" className="w-[6vw] h-[6vw] rounded-[50%]" />
                         <span className="text-[2.73vw] ml-[2vw] mr-[1.5vw] text-[#fff] opacity-50">{song?.creator?.nickname}</span>
                         <span className="px-[2vw] py-[1.25vw] rounded-[50px] text-[2.2vw] text-[#fff] opacity-50 bg-opacity-20 bg-[#fff] flex items-center pr-[3.5vw]">
-                            <Icon icon="carbon:add" color="#f9fcfb" verticalFlip="true" width={20} />
+                            <Icon icon="carbon:add" color="#f9fcfb" verticalflip="true" width={20} />
                             关注
                         </span>
                     </div>

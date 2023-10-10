@@ -9,6 +9,7 @@ export default function App() {
         <Route path="/Home" element={<> <Nav /><Laycoponent path="Home/index.jsx" /></>} />
         <Route path="/Search" element={<Laycoponent path="Search/Search.jsx" />} />
         <Route path="/Mv" element={<> <Nav /> <Laycoponent path="Mv/Mv.jsx" /></>} />
+        <Route path="/Mv/Mvplay/:id" element={<Laycoponent path="Mv/Mvplay.jsx" />} />
         <Route path="*" element={<Laycoponent path="404/Nofont.jsx" />} />
         <Route path="/Login" element={<Laycoponent path="login/Login.jsx" />} />
         <Route path="/PersonalCenter/Edit" element={<Laycoponent path="PersonalCenter/Edit.jsx" />} />

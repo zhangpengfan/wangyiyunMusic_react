@@ -19,7 +19,7 @@ export default function Song() {
           {item.resources.map((item) => (
             <div
               className="w-[87.64vw]  mt-[2.36vw] h-[14vw] flex"
-              key={item.index}
+              key={item.id}
             >
               <img
                 src={item.uiElement?.image?.imageUrl}

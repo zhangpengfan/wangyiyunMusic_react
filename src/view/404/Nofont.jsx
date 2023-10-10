@@ -1,9 +1,11 @@
 import React from "react";
 // import Foo from "../../component/Foo";
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "antd-mobile";
 export default function No() {
-  let [x, setx] = useState(10);
+  const navigator = useNavigate()
+  let [x, setx] = useState(5);
   let timer = useRef(null);
   const sedund = () => {
     timer.current = setInterval(() => {
@@ -13,10 +15,10 @@ export default function No() {
   //useEffectreact元素渲染了才执行
   useEffect(() => {
     if (x <= 0) {
-      clearInterval(timer.current);
-      setx(10);
+      navigator("/Home")
     }
-    console.log("11", document.getElementById("ss"));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [x]);
   console.log("22", document.getElementById("ss"));
   // let data1 = ({name:"abc"})

@@ -131,7 +131,7 @@ export default function Sidebar() {
   return (
     <div className="p-[7vw] bg-[#151515] h-[100%]">
       {/* 用户头像 */}
-      <div className="flex items-center justify-between mb-[4vw]">
+      <div className="flex items-center justify-between mb-[3vw]">
         <div className="flex items-center">
           {cookie ? (
             <div
@@ -162,7 +162,7 @@ export default function Sidebar() {
           )}
           <Icon
             icon="mingcute:right-line"
-            className="text-[4vw] text-[#fff]]"
+            color="white"
           />
         </div>
         <Icon

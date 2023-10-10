@@ -28,9 +28,9 @@ export default function Recommendedplaylists() {
       return playVolume;
     }
   };
-  const items = lists.map((item, index) => (
-    <Swiper.Item key={index}>
-      <div key={index} className="lunbo">
+  const items = lists.map((item) => (
+    <Swiper.Item key={item.id}>
+      <div className="lunbo">
         <img
           src={item.uiElement.image.imageUrl}
           alt=""
@@ -72,7 +72,7 @@ export default function Recommendedplaylists() {
               <li key={item.id} className="whitespace-pre-wrap ml-[2vw] scroll-item relative shadow-md-up">
                 <div className="h-[40.81vw] relative">
                   <img src={item.uiElement.image.imageUrl} alt="" className="w-[30vw] h-[30vw] rounded-2xl"
-                    onClick={() => { plsylist(item.resources[0].resourceId) }} />
+                    onClick={() => { plsylist(item?.resources[0]?.resourceId) }} />
                   <Icon
                     icon="ion:play"
                     width="10"

@@ -35,7 +35,7 @@ export default function MusicCalendar() {
   return (
     <div className="px-[4vw] py-[4vw] shadow-xl bg-[#25272e] mt-2 rounded-xl">
       {music.map((item) => (
-        <div className="mt-[3vw] flex justify-between border-b border-[#2d2f36] items-center">
+        <div className="mt-[3vw] flex justify-between border-b border-[#2d2f36] items-center" key={item.id}>
           <div>
             <p className="text-[2.72vw] text-[white]">{`${new Date().getMonth() + 1
               }/${new Date().getDate()}`}</p>

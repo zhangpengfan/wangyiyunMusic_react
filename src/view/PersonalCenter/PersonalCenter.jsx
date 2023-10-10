@@ -14,11 +14,11 @@ export default function PersonalCenter() {
       .then((userId) => fetchUserDetail(userId).then((res) => {
         setuserData(res.data)
         return userId
-      }).then((userId) => fetchUserPlaylist(userId).then((res) => {
+      }))
+      .then((userId) => fetchUserPlaylist(userId).then((res) => {
         setsonglist(res.data.playlist.filter((item) => item.subscribed))//收藏歌单
         setcreate(res.data.playlist.filter((item) => !item.subscribed))//创建歌单
       }))
-      )
       .catch((err) => {
         console.log(err)
       })
@@ -43,7 +43,7 @@ export default function PersonalCenter() {
     {/* 头部背景 */}
     <div className="w-[100%] h-[74vw] relative">
       <div className="w-[100%] h-[15vw] px-[4.5vw] flex items-center justify-between fixed top-0 z-[10]">
-        <NavLink to={"./Home"}>
+        <NavLink to={-1}>
           <Icon icon="teenyicons:left-outline" color="white" />
         </NavLink>
         <Icon icon="simple-line-icons:options-vertical" width="15" color='white' />
