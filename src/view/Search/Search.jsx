@@ -20,6 +20,7 @@ export default function Search() {
     SearchBox(content)
       .then((res) => {
         setsearch(res.data.result.songs);
+        console.log(res.data.result.songs)
       })
       .catch((err) => {
         console.log(err);
@@ -153,10 +154,7 @@ export default function Search() {
       {content ? (
         <div className="absolute top-0 left-0 w-[100%] bg-[#1a1c23] z-[999] px-[10px]">
           {serach.map((item, index) => (
-            <div
-              className="flex items-center p-[10px] border-b border-[#282a31]"
-              key={index}
-            >
+            <div className="flex items-center p-[10px] border-b border-[#282a31]" key={item.id} >
               <Icon icon="basil:search-outline" color="white" />
               <p className="ml-2 text-[white] over">{item.name}</p>
             </div>

@@ -28,7 +28,6 @@ export default function Mvlist() {
     MvList(list)
       .then((res) => {
         setmap(res.data.data);
-        console.log(res.data.data)
       })
       .catch((err) => {
         console.log(err);

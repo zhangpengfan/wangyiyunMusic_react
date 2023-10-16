@@ -84,7 +84,8 @@ to {
 opacity: 0;
 }
 }
-.rotateAnimation {
+
+.rotateAnimations {
 animation: rotate 10s linear infinite;
 }
 
@@ -96,4 +97,33 @@ transform: rotate(0deg);
 to {
 transform: rotate(360deg);
 }
+}
+.backround {
+background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}
+.rotateAnimation1 {
+animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+from {
+transform: translateX(0%) translateY(0%) rotate(0deg);
+}
+to {
+transform: translateX(0%) translateY(0%) rotate(360deg);
+}
+}
+.paused-animation {
+animation-play-state: paused;
+}
+
+.react-blur-canvas {
+/* position: absolute; */
+width: 100% !important;
+height: 100vh !important;
+}
+
+.rotated {
+transition: all 1s;
+transform-origin: 15% 8%;
 }

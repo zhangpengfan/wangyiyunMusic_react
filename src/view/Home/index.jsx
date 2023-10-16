@@ -61,7 +61,7 @@ export default function Index() {
       </div>
       {/* 推荐歌单 */}
       <div className="w-screen mt-[9.7vw] border-b-[1px] border-[#2d2f36] px-[10px]">
-        <Title title="推荐歌单" />
+        <Title title="推荐歌单" router={"/PlaylistPlaza"} />
         <Recommendedplaylists />
       </div>
       {/* 新歌 */}

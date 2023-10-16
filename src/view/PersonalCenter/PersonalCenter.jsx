@@ -11,17 +11,17 @@ export default function PersonalCenter() {
     fetchUserAccount().then((res) => {
       return res.data.profile.userId
     })
-      .then((userId) => fetchUserDetail(userId).then((res) => {
-        setuserData(res.data)
-        return userId
-      }))
-      .then((userId) => fetchUserPlaylist(userId).then((res) => {
-        setsonglist(res.data.playlist.filter((item) => item.subscribed))//收藏歌单
-        setcreate(res.data.playlist.filter((item) => !item.subscribed))//创建歌单
-      }))
-      .catch((err) => {
-        console.log(err)
-      })
+    .then((userId) => fetchUserDetail(userId).then((res) => {
+      setuserData(res.data)
+      return userId
+    }))
+    .then((userId) => fetchUserPlaylist(userId).then((res) => {
+      setsonglist(res.data.playlist.filter((item) => item.subscribed))//收藏歌单
+      setcreate(res.data.playlist.filter((item) => !item.subscribed))//创建歌单
+    }))
+    .catch((err) => {
+      console.log(err)
+    })
   }, [])
   const year = (userData) => {
     const createTime = userData

@@ -23,7 +23,8 @@ const MvPlay = () => {
             return playVolume;
         }
     };
-    return (<div className="bg-black w-screen h-screen pb-[-12vw] flex flex-wrap">
+    return (<div className="bg-black w-[100%] h-screen pb-[-12vw] flex flex-wrap overflow-hidden">
+        {/* 头部导航 */}
         <div className="flex justify-between items-center px-[6vw] pt-[3vw] w-[100%] h-[12vw]">
             <NavLink to={-1}>
                 <Icon icon="teenyicons:left-outline" color="white" width={20} />
@@ -33,6 +34,7 @@ const MvPlay = () => {
                 <Icon icon="simple-line-icons:options-vertical" width="15" color="white" className="text-[6vw] text-[#fefefe] iconify iconify--ri" />
             </div>
         </div>
+        {/* 视频 */}
         <div className="w-[100%] h-[54vw] absolute top-[12%]">
             <div className="plyr plyr--full-ui plyr--video plyr--html5 plyr--fullscreen-enabled plyr--pip-supported plyr--is-touch plyr--paused">
                 <video src={Mvdata?.url} loop autoPlay="autoplay" controls="controls"></video>
@@ -40,6 +42,7 @@ const MvPlay = () => {
         </div>
         <div className="w-[100%] absolute bottom-[0vw]">
             <div className="flex justify-between px-[4vw] items-end pb-[3vw]">
+                {/* 作者信息 */}
                 <div className="flex-1 mr-[10vw]">
                     <div className="flex items-center mb-[3vw]">
                         <img src={songdata?.artists[0]?.img1v1Url} alt="" className="w-[9vw] h-[9vw] rounded-[50%] border-[2px] border-[#ffffff]" />
@@ -60,6 +63,7 @@ const MvPlay = () => {
                         <Icon icon="streamline:interface-favorite-heart-reward-social-rating-media-heart-it-like-favorite-love" color="white" />
                     </div>
                 </div>
+                {/* 点赞评论 */}
                 <div className="w-[10vw]">
                     <div className="flex items-center flex-wrap justify-center mb-[4vw]">
                         <Icon icon="mdi:like" color="white" className="text-[6vw] mb-[2vw] text-[#eaeaea] iconify iconify--bxs" />
@@ -79,13 +83,14 @@ const MvPlay = () => {
                     </div>
                     <div className="relative flex items-center justify-center">
                         <img src="my-project\src\static\fang.png" alt="" className="w-[10vw] h-[10vw] rounded-[50%]" />
-                        <img src={songdata?.cover} alt="" className="w-[7vw] h-[7vw] rounded-[50%] absolute rotateAnimation" />
+                        <img src={songdata?.cover} alt="" className="w-[7vw] h-[7vw] rounded-[50%] absolute rotateAnimations" />
                     </div>
                 </div>
             </div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div className="w-[100%] flex items-center justify-between text-[#4d4d4d] px-[4vw] py-[4vw] text-[4vw]">
+                <p>发条评论结识有趣的人</p>
+                <Icon icon="cil:fullscreen" color="white" className="text-[4vw] mr-2" />
+            </div>
         </div>
     </div>)
 }
