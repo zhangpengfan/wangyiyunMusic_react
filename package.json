@@ -10,6 +10,7 @@
     "ahooks": "^3.7.8",
     "antd-mobile": "^5.32.4",
     "axios": "^1.5.0",
+    "howler": "^2.2.4",
     "lodash": "^4.17.21",
     "pinyin": "^3.0.0-alpha.5",
     "react": "^18.2.0",

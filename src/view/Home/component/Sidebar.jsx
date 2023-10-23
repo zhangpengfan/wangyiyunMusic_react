@@ -10,7 +10,6 @@ export default function Sidebar() {
   const navigte = useNavigate();
   useEffect(() => {
     fetchUserAccount().then((res) => {
-      // console.log("用户数据", res.data.profile)
       setuser(res.data.profile)
     })
       .catch((err) => {

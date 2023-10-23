@@ -40,7 +40,7 @@ export const featMvUrl = (id) => http.get('/mv/url', { params: { id } });//mv视
 export const featMvDetail = (mvid) => http.get('/mv/detail', { params: { mvid } });
 export const featMvDetailInfo = (mvid) => http.get('/mv/detail/info', { params: { mvid } })
 
-// 歌曲列表数据
+// 歌单详情数据
 export const songDetails = (params) => http.get(`/playlist/detail?id=${params}`)//头部数据
 export const fetchSongList = (params) => http.get(`/playlist/track/all?id=${params}`)//歌曲数据
 export const musicSlider = (params) => http.get(`related/playlist?id=${params}`)//头部轮播数据
@@ -48,6 +48,7 @@ export const getMP3 = (id) => http.get('/song/url/v1', { params: { id, level: 's
 export const lyricText = (id) => http.get('/lyric', { params: { id } });// 歌词
 export const getSongDetail = (id) => http.get("/song/detail", { params: { ids: id } });//歌曲播放信息
 export const getCommentPlaylist = (id) => http.get("/comment/playlist", { params: { id } });// 歌单评论
+export const collection = (params) => http.get("/playlist/subscribe", { params })//收藏和取消
 
 
 //登录扫码获取个人数据
@@ -64,8 +65,10 @@ export const fetchUserPlaylist = (uid) => http.get('/user/playlist', { params: {
 export const getUpdate = (gender, birthday, nickname, province, city, signature) =>
   http.get('/user/update', { params: { gender, birthday, nickname, province, city, signature } });
 
+
+//精品歌单
+export const getHighquality = (cat) => http.get("/top/playlist/highquality", { params: { cat } });
 // 歌单广场
-export const taglist = () => http.get("/playlist/highquality/tags")//精品歌单标签列表
-// export const highquality = (params) => http.get(`/related/playlist?id=${params}`)
+export const getTopPlaylist = (cat) => http.get("/top/playlist", { params: { cat } });
 
 

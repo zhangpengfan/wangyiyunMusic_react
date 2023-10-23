@@ -60,7 +60,7 @@ export default function Mvlist() {
                   <div className="w-[92vw] pr-[20px]" key={index}>
                     <div className="w-[100%] h-[52vw] relative">
                       <img src={item.cover} alt="" className="w-[100%] h-[52vw] bg-black rounded-[3vw] mb-[2.7vw]" onClick={() => plsylist(item.id)} />
-                      <div class="absolute top-[2vw] text-[#fff] right-[2vw] text-[2.6vw] flex items-center">
+                      <div className="absolute top-[2vw] text-[#fff] right-[2vw] text-[2.6vw] flex items-center">
                         <Icon icon="mdi:play" color="white" />
                         <span className="ml-1">
                           {dataTruncation(Number(item.playCount))}
@@ -80,7 +80,6 @@ export default function Mvlist() {
                         <div className="w-[5.3vw] text-[#999999] text-[2vw] mr-[2.8vw] flex items-center justify-center"></div>
                         <div className=" flex-1 line-clamp-1 text-[#7c7c7c] text-[2vw]">
                           <span>{item.artistName}</span>
-                          <span>{ }</span>
                         </div>
                       </div>
                     </div>

@@ -8,7 +8,7 @@ export default function App() {
         <Route path="/" element={<Navigate to="/Home" />} />
         <Route path="/Home" element={<> <Nav /><Laycoponent path="Home/index.jsx" /></>} />
         <Route path="/Search" element={<Laycoponent path="Search/Search.jsx" />} />
-        <Route path="/PlaylistPlaza" element={<Laycoponent path="PlaylistPlaza/PlaylistPlaza.jsx" />} />
+        <Route path="/SingerSquare" element={<Laycoponent path="SingerSquare/SingerSquare.jsx" />} />
         <Route path="/Mv" element={<> <Nav /> <Laycoponent path="Mv/Mv.jsx" /></>} />
         <Route path="/Mv/Mvplay/:id" element={<Laycoponent path="Mv/Mvplay.jsx" />} />
         <Route path="*" element={<Laycoponent path="404/Nofont.jsx" />} />

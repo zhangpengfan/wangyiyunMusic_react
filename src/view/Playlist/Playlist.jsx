@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
-import { fetchSongList } from "../../service/index";
+import { fetchSongList, collection } from "../../service/index";
 import { useParams, NavLink, useNavigate } from 'react-router-dom';
 import { Icon } from "@iconify/react";
 import Heaed from "./component/Head";
@@ -19,9 +19,17 @@ export default function Playlist() {
   const [Popupstort, setPopupstort] = useState(false)
   const [Popupreport, setPopupreport] = useState(false)
   const [songlist, setsonglist] = useState([])
+  //获取子传父数据
+  const handleSongData = (songData) => {
+    setsong(songData)
+  };
   const { id } = useParams();
   const { data } = useRequest(() => fetchSongList(id))//歌曲列表
+  const { run } = useRequest(() => collection({ t: Number(!song?.subscribed), id: id }), {
+    manual: true
+  });
   useEffect(() => {
+    collection()
     setsonglist(data?.data?.songs)
   }, [data])
   //歌曲排序
@@ -36,10 +44,6 @@ export default function Playlist() {
       return pinyinA.localeCompare(pinyinB);
     });
     return clonedObject;
-  };
-  //获取子传父数据
-  const handleSongData = (songData) => {
-    setsong(songData)
   };
   const navigate = useNavigate()
   const plsylist = (id) => {
@@ -93,7 +97,9 @@ export default function Playlist() {
           <Icon icon="fluent:chat-20-filled" color="white" className="text-[5vw] mr-[1.8vw] iconify iconify--majesticons" />
           {song?.commentCount}
         </div>
-        <div className="ml-2 flex items-center justify-center h-[9.9vw] rounded-[12.5rem] bg-[#ff2658] font-[800] flex-1 text-[#f8fefe] text-[3vw]">
+        <div className={`ml-2 flex items-center justify-center h-[9.9vw] rounded-[12.5rem] ${song?.subscribed ? "bg-opacity-20 bg-[#fff] " : "bg-[#ff2658]"}  font-[800] flex-1 text-[#f8fefe] text-[3vw]`}
+          onClick={() => run()}
+        >
           <Icon icon="ph:pentagram-fill" color="white" className="text-[5vw] mr-[1.8vw] iconify iconify--majesticons" />
           {song?.subscribedCount}
         </div>

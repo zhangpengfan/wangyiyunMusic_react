@@ -11,7 +11,7 @@ const Comment = (props) => {
 
   return (
     <div className="pb-[20px] rounded-tl-[8px] rounded-tr-[8px]">
-      <div className="bg-[#272727] overflow-y-auto h-[200vh] overflow-x-hidden">
+      <div className="bg-[#272727] overflow-y-auto h-[100vh] overflow-x-hidden pb-[20px]">
         <div className="flex items-center justify-end px-[3vw] py-[3vw] bg-[#272727]">
           <div className="w-[60%] flex items-center justify-between">
             <span className="text-[4.5vw] text-[white]">
@@ -66,11 +66,7 @@ const Comment = (props) => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <div className="w-[9.422vw] h-[9.422vw] rounded-[50%] border border-[red]">
-                        <img
-                          src={item?.user?.avatarUrl}
-                          alt=""
-                          className="w-[9.422vw] h-[9.422vw] rounded-[50%]"
-                        />
+                        <img src={item?.user?.avatarUrl} alt="" className="w-[9.422vw] h-[9.422vw] rounded-[50%]" />
                       </div>
                       <div className="pl-[2.4vw] text-[white]">
                         <p>{item?.user?.nickname}</p>

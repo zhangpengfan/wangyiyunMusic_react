@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
 import { fetchUserAccount, fetchUserDetail, fetchUserPlaylist } from "../../service/index"
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 export default function PersonalCenter() {
   let [userData, setuserData] = useState([])
   let [song, setsonglist] = useState([])
@@ -11,17 +11,17 @@ export default function PersonalCenter() {
     fetchUserAccount().then((res) => {
       return res.data.profile.userId
     })
-    .then((userId) => fetchUserDetail(userId).then((res) => {
-      setuserData(res.data)
-      return userId
-    }))
-    .then((userId) => fetchUserPlaylist(userId).then((res) => {
-      setsonglist(res.data.playlist.filter((item) => item.subscribed))//收藏歌单
-      setcreate(res.data.playlist.filter((item) => !item.subscribed))//创建歌单
-    }))
-    .catch((err) => {
-      console.log(err)
-    })
+      .then((userId) => fetchUserDetail(userId).then((res) => {
+        setuserData(res.data)
+        return userId
+      }))
+      .then((userId) => fetchUserPlaylist(userId).then((res) => {
+        setsonglist(res.data.playlist.filter((item) => item.subscribed))//收藏歌单
+        setcreate(res.data.playlist.filter((item) => !item.subscribed))//创建歌单
+      }))
+      .catch((err) => {
+        console.log(err)
+      })
   }, [])
   const year = (userData) => {
     const createTime = userData
@@ -38,6 +38,10 @@ export default function PersonalCenter() {
       return `${Math.floor(playVolume / 10000)}万`;
     }
     return playVolume?.toString();
+  }
+  const navigate = useNavigate()
+  const plsylist = (id) => {
+    navigate(`/Playlist/${id}`)
   }
   return (<div className="mb-[10vw]">
     {/* 头部背景 */}
@@ -126,7 +130,7 @@ export default function PersonalCenter() {
         </p>
         <ul className="px-[4vw] pb-[4vw]">
           {create?.map((item) => (
-            <li className="flex mb-[1.5vw]" key={item.id}>
+            <li className="flex mb-[1.5vw]" key={item.id} onClick={() => plsylist(item.id)}>
               <div className="pt-[0.6vw] mr-[2.6vw] ">
                 <img src={item.coverImgUrl} alt="" className="w-[12vw] h-[12vw] rounded-[10px] bg-black z-[2]" />
               </div>
@@ -146,7 +150,7 @@ export default function PersonalCenter() {
         </p>
         <ul className="px-[4vw] pb-[4vw]">
           {song?.map((item) => (
-            <li className="flex mb-[1.5vw]" key={item.id}>
+            <li className="flex mb-[1.5vw]" key={item.id} onClick={() => plsylist(item.id)}>
               <div className="pt-[0.6vw] mr-[2.6vw] ">
                 <img src={item?.coverImgUrl} alt="" className="w-[12vw] h-[12vw] rounded-[10px] bg-black z-[2]" />
               </div>

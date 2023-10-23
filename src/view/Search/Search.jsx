@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { fetchToplistDetail, SearchBox } from "../../service/index";
 export default function Search() {
   let [list, setList] = useState([]);
@@ -45,6 +45,10 @@ export default function Search() {
     },
   ];
   const LikeData = ["方大同", "周杰伦", "陪你度过漫长岁月", "张杰"];
+  const navigte = useNavigate()
+  const playing = (id) => {
+    navigte(`/PlayPage/${id}`)
+  }
   return (
     <div className="bg-[#1a1c23] pb-[45px] relative">
       {/* 头部 */}
@@ -153,10 +157,10 @@ export default function Search() {
       {/* 搜索内容 */}
       {content ? (
         <div className="absolute top-0 left-0 w-[100%] bg-[#1a1c23] z-[999] px-[10px]">
-          {serach.map((item, index) => (
+          {serach.map((item) => (
             <div className="flex items-center p-[10px] border-b border-[#282a31]" key={item.id} >
               <Icon icon="basil:search-outline" color="white" />
-              <p className="ml-2 text-[white] over">{item.name}</p>
+              <p className="ml-2 text-[white] over" onClick={() => playing(item.id)}>{item.name}</p>
             </div>
           ))}
         </div>
